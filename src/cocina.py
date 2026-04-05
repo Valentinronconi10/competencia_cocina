@@ -1,3 +1,4 @@
+import copy
 def calcular_total(datos):
     return datos["judge_1"] + datos["judge_2"] + datos["judge_3"]
 
@@ -34,6 +35,8 @@ def simular_competencia(rounds):
 
         tabla_posiciones[ganador]["rondas_ganadas"] += 1
 
-        resultados.append((ronda["theme"], ganador, mejor_puntaje, tabla_posiciones.copy()))
+        resultados.append((ronda["theme"], ganador, mejor_puntaje, copy.deepcopy(tabla_posiciones)))
+
+
 
     return resultados, tabla_posiciones
